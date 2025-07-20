@@ -1,7 +1,7 @@
 import React from 'react';
 import { assets } from '../assets/assets';
 import Navbar from './navbar';
-
+import { motion } from "motion/react"
 const Header = () => {
   return (
     <div
@@ -11,7 +11,12 @@ const Header = () => {
       <Navbar />
 
       {/* Fullscreen content area */}
-      <div className="flex items-center justify-center min-h-screen px-6 md:px-20 lg:px-32">
+      <motion.div 
+      initial={{opacity:0,y:100}}
+      transition={{duration :1.5}}
+      whileInView={{opacity:1,y:0}}
+      viewport={{once:true}}
+      className="flex items-center justify-center min-h-screen px-6 md:px-20 lg:px-32">
         <div className="text-center text-white">
           <h2 className="text-3xl md:text-4xl font-semibold mb-6">
             Explore homes that fit your dreams
@@ -32,7 +37,7 @@ const Header = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
